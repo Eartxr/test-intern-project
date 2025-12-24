@@ -30,7 +30,8 @@ export default function Home() {
         </h2>
       </div>
 
-      <div className="bg-white p-6 rounded-3xl shadow-md mb-8">
+      <div className="bg-white p-6 rounded-3xl shadow-md mb-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 cursor-pointer">
+   {/* ...ข้างในเป็น input เหมือนเดิม... */}
         <input 
           type="text" placeholder="ชื่อรายการ (เช่น ค่าข้าว)" 
           className="w-full p-3 border rounded-xl mb-3 outline-none focus:ring-2 focus:ring-indigo-400"
@@ -42,8 +43,23 @@ export default function Home() {
           value={inputAmount} onChange={(e) => setInputAmount(e.target.value)}
         />
         <div className="flex gap-2">
-          <button onClick={() => handleAdd("plus")} className="flex-1 bg-green-500 text-white p-3 rounded-xl font-bold hover:bg-green-600 transition">+ รายรับ</button>
-          <button onClick={() => handleAdd("minus")} className="flex-1 bg-red-500 text-white p-3 rounded-xl font-bold hover:bg-red-600 transition">- รายจ่าย</button>
+          {/* ปุ่มรายรับ */}
+<button 
+  onClick={() => handleAdd("plus")} 
+  className="flex-1 bg-green-500 text-white p-3 rounded-xl font-bold 
+             transition-all hover:bg-green-600 hover:scale-105 active:scale-95"
+>
+  + รายรับ
+</button>
+
+{/* ปุ่มรายจ่าย */}
+<button 
+  onClick={() => handleAdd("minus")} 
+  className="flex-1 bg-red-500 text-white p-3 rounded-xl font-bold 
+             transition-all hover:bg-red-600 hover:scale-105 active:scale-95"
+>
+  - รายจ่าย
+</button>
         </div>
       </div>
 
@@ -55,6 +71,7 @@ export default function Home() {
               {item.amount > 0 ? '+' : ''}{item.amount.toLocaleString()}
             </span>
           </div>
+          
         ))}
       </div>
     </div>
